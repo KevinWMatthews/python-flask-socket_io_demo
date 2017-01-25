@@ -1,0 +1,18 @@
+# Ignore python byte code
+*.pyc
+
+# Ignore python virtual enviromnent
+venv/
+
+# Ignore python package configuration stuff?
+*.egg-info
+
+# Ignore Sublime Text files
+*.sublime-workspace
+
+# Ignore vim swap files
+*.swp
+*.swo
+
+# Ignore Konqueror files
+.directory

@@ -1,0 +1,2 @@
+graft websocket_io/templates
+graft websocket_io/static
