@@ -7,7 +7,24 @@
 </head>
 
 <body>
-	<h1>hi</h1>
+	<div class="container">
+		<h1>Welcome to the SocketIO demo!</h1>
+	</div>
+	<div class="container">
+		<button type="button" onclick="emitString()">Emit String</button>
+		<button type="button" onclick="sendString()">Send String</button>
+		<button type="button" onclick="emitJson()">Emit Json</button>
+		<button type="button" onclick="emitUnhandledEvent()">Emit Unhandled Event</button>
+		<button type="button" onclick="requestEmitCustomEvent()">Request Emit Custom Event</button>
+		<button type="button" onclick="requestSend()">Request Send</button>
+		<button type="button" onclick="requestUnhandleEvent()">Request Unhandled Event</button>
+	</div>
+	<div class="container">
+		<h3>Status log</h3>
+		<div id="status_log">
+		</div>
+	</div>
+
 	<script type="text/javascript" src="static/lib/jquery.js"></script>
 	<script type="text/javascript" src="static/lib/bootstrap.js"></script>
 	<script type="text/javascript" src="static/lib/socket.io.min.js"></script>
