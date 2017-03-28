@@ -9,6 +9,9 @@ default_view = Blueprint('index', __name__)
 @app.route('/', defaults = {'page': 'index'})
 @app.route('/<page>')
 def show(page):
+    # To emit a message outside of a handler, you must use socketio.emit()
+    # This is sent before the page is rendered so you won't see it in the status log.
+    socketio.emit('message', 'Showing page')
     try:
         return render_template('%s.html' % page)
     except TemplateNotFound:
