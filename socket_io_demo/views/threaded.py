@@ -17,9 +17,17 @@ def a_thread():
     send_message('You are leaving the thread')
     return
 
+def thread_with_args(msg):
+    time.sleep(2)
+    send_message('You have entered the thread with arguments')
+    while True:
+        time.sleep(2)
+        send_message(msg)
+
 @app.route('/threaded')
 def show_threaded():
     eventlet.spawn(a_thread)
+    eventlet.spawn(thread_with_args, 'This is the argumentative thread')
 
     try:
         return render_template('threaded.html')
