@@ -19,12 +19,20 @@
 		<button type="button" onclick="requestSend()">Request Send</button>
 		<button type="button" onclick="requestUnhandleEvent()">Request Unhandled Event</button>
 	</div>
-	<div class="container">
-		<form name="upload" action="" method="post" enctype="multipart/form-data">
-			<input type="file" name="uploaded_file" accept=".swu"/>
-			<input type="submit" value="Send"/>
-		</form>
-	</div>
+
+    <div id="fileupload_div" class="container">
+        <input id="fileupload" type="file" name="uploaded_file" accept=".swu" data-url="threaded">
+    </div>
+
+    <div class="container">
+        <h3>Upload progress</h3>
+        <div class="progress" id="upload_progress">
+            <div class="progress-bar" id="upload_bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0%" style="width: 0%">
+            </div>
+        </div>
+    </div>
+
+
 	<div class="container">
 		<h3>Status log</h3>
 		<div id="status_log">
@@ -34,6 +42,9 @@
 	<script type="text/javascript" src="static/lib/jquery.js"></script>
 	<script type="text/javascript" src="static/lib/bootstrap.js"></script>
 	<script type="text/javascript" src="static/lib/socket.io.min.js"></script>
+    <script src="/static/lib/jquery-file-upload/vendor/jquery.ui.widget.js"></script>
+    <script src="/static/lib/jquery-file-upload/jquery.iframe-transport.js"></script>
+    <script src="/static/lib/jquery-file-upload/jquery.fileupload.js"></script>
 	<script type="text/javascript" charset="utf-8" src="static/custom_socket_io.js"></script>
 </body>
 </html>
