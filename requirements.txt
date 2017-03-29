@@ -1,4 +1,4 @@
-appdirs==1.4.0
+appdirs==1.4.3
 click==6.7
 enum-compat==0.0.2
 enum34==1.1.6
@@ -10,9 +10,10 @@ itsdangerous==0.24
 Jinja2==2.9.4
 MarkupSafe==0.23
 packaging==16.8
-pyparsing==2.1.10
+psutil==5.2.1
+pyparsing==2.2.0
 python-engineio==1.1.1
 python-socketio==1.6.3
 six==1.10.0
--e git+git@github.com:KevinWMatthews/python-flask-socket_io_demo.git@d664441908bb085c6d0e49482f24f315cf470e6d#egg=socket_io_demo
+-e git+git@github.com:KevinWMatthews/python-flask-socket_io_demo.git@133378f9cd593728842fc9961de20cef1e143a39#egg=socket_io_demo
 Werkzeug==0.11.15
