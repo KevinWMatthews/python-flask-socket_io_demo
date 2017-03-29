@@ -3,6 +3,7 @@ from flask_socketio import emit, send
 from jinja2 import TemplateNotFound
 from socket_io_demo import app, socketio
 import time
+from threading import Thread
 import eventlet
 eventlet.monkey_patch()
 
@@ -26,8 +27,16 @@ def thread_with_args(msg):
 
 @app.route('/threaded')
 def show_threaded():
-    eventlet.spawn(a_thread)
-    eventlet.spawn(thread_with_args, 'This is the argumentative thread')
+    thread = Thread(target=a_thread)
+    thread.daemon = True
+    thread.start()
+
+    thread2 = Thread(target=thread_with_args, args={'This is the argumentative thread'})
+    thread2.daemon = True
+    thread2.start()
+
+    # eventlet.spawn(a_thread)
+    # eventlet.spawn(thread_with_args, 'This is the argumentative thread')
 
     try:
         return render_template('threaded.html')
