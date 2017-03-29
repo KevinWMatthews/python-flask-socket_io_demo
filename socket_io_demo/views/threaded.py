@@ -22,8 +22,17 @@ def thread_with_args(msg):
     time.sleep(2)
     send_message('You have entered the thread with arguments')
     while True:
-        time.sleep(2)
+        time.sleep(1)
         send_message(msg)
+
+def work_hard(filepath):
+    time.sleep(3)
+    send_message('about to work hard')
+    file = open('/home/kmatthews/sitara/release/outdoor_intercom_v1.0.0b20.swu', 'r')
+    print file.read()
+    print file.read()
+    send_message('Done working hard')
+    return
 
 @app.route('/threaded')
 def show_threaded():
@@ -31,9 +40,13 @@ def show_threaded():
     thread.daemon = True
     thread.start()
 
-    thread2 = Thread(target=thread_with_args, args={'This is the argumentative thread'})
-    thread2.daemon = True
-    thread2.start()
+    # thread2 = Thread(target=thread_with_args, args={'This is the argumentative thread'})
+    # thread2.daemon = True
+    # thread2.start()
+
+    thread3 = Thread(target=work_hard, args={'filepath'})
+    thread3.daemon = True
+    thread3.start()
 
     # eventlet.spawn(a_thread)
     # eventlet.spawn(thread_with_args, 'This is the argumentative thread')
