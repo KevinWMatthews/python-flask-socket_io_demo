@@ -10,10 +10,9 @@ itsdangerous==0.24
 Jinja2==2.9.4
 MarkupSafe==0.23
 packaging==16.8
-psutil==5.2.1
 pyparsing==2.2.0
 python-engineio==1.1.1
 python-socketio==1.6.3
 six==1.10.0
--e git+git@github.com:KevinWMatthews/python-flask-socket_io_demo.git@133378f9cd593728842fc9961de20cef1e143a39#egg=socket_io_demo
+-e git+git@github.com:KevinWMatthews/python-flask-socket_io_demo.git@5f7da68931e5c7f775b1d18959f1c05b10259757#egg=socket_io_demo
 Werkzeug==0.11.15

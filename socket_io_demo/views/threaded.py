@@ -5,11 +5,9 @@ from socket_io_demo import app
 
 import os
 import tempfile
-import time
 
 import flask
 import werkzeug
-import psutil
 
 # from saveserver import current_milli_time, intWithCommas, measure_spent_time
 
@@ -33,11 +31,6 @@ def show_threaded():
         for fil in files.values():
             print " ".join(["saved form name", fil.name, "submitted as", fil.filename, "to temporary file", fil.stream.name])
             total_size += os.path.getsize(fil.stream.name)
-
-        # mb_per_s = "%.1f" % ((total_size / (1024.0*1024.0)) / ((1.0+ms(raw=True))/1000.0))
-        # print " ".join([str(x) for x in ["handling POST request, spent", ms(), "ms.", mb_per_s, "MB/s.", "Number of files:", len(files.values())]])
-        process = psutil.Process(os.getpid())
-        print "memory usage: %.1f MiB" % (process.memory_info().rss / (1024.0*1024.0))
 
     try:
         return render_template('threaded.html')
