@@ -40,7 +40,7 @@ def show_threaded():
 
         if file: #and allowed_filename(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join('/tmp', filename))
+            print file.read()
             return 'OK'
 
         return 'error'
