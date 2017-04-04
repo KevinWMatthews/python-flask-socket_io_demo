@@ -19,6 +19,13 @@ def background_thread():
         time.sleep(1)
         send_message('Background thread woke up')
 
+def background_thread_with_arg(*args):
+    time.sleep(2)
+    send_message('Entering background_thread_with_arg: %s' % msg)
+    while True:
+        time.sleep(1)
+        send_message(msg)
+
 @app.route('/threaded', methods=['GET', 'POST'])
 def show_threaded():
     if request.method == 'POST':
@@ -62,9 +69,8 @@ def show_threaded():
         return jsonify(status_message = status_message)
 
     # Alternatively, you may use eventlet.spawn(background_thread)
-    thread = Thread(target=background_thread)
-    thread.daemon = True
-    thread.start()
+    socketio.start_background_task(target=background_thread)
+    socketio.start_background_task(target=background_thread_with_arg, args='hi')
 
     try:
         return render_template('threaded.html')
