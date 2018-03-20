@@ -5,6 +5,10 @@ var status_log = document.getElementById('status_log');
 
 var socket = io.connect('http://' + document.domain + ':' + location.port);
 
+$('#socketIoButton').on('click', function (e) {
+    sendCustomMessage('You clicked the modal button!');
+})
+
 socket.on('connect', function() {
     message = 'SocketIO connected';
     console.log(message);
@@ -45,6 +49,12 @@ function sendString() {
     // send(message)
     // send() allows you to send messages with the 'message' event
     socket.send(message);   // There is more to it than this...
+    logStatus(status_log, message);
+}
+
+function sendCustomMessage(message) {
+    console.log('JavaScript SocketIO is about to send a message: ' + message);
+    socket.send(message);
     logStatus(status_log, message);
 }
 
