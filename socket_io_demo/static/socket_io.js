@@ -5,6 +5,15 @@ var status_log = document.getElementById('status_log');
 
 var socket = io.connect('http://' + document.domain + ':' + location.port);
 
+$('#socketIoModal').on('show.bs.modal', function (e) {
+    console.log('Modal was shown');
+})
+
+$('#socketIoModal').on('hidden.bs.modal', function (e) {
+    console.log('Modal was hidden');
+})
+
+
 $('#socketIoButton').on('click', function (e) {
     sendCustomMessage('You clicked the modal button!');
 })
